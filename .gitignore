@@ -1,0 +1,12 @@
+
+# Dependency directory
+node_modules
+
+# API keys and secrets
+.env
+
+# Editor
+.idea
+
+# Ignore Build
+dist/**/*
