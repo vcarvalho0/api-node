@@ -8,6 +8,26 @@ export const index = async (req: Request, res: Response): Promise<Response> => {
 };
 
 export const create = async (req: Request, res: Response): Promise<Response> => {
-  const _id = await User.create(req.body);
-  return res.json(_id)
-};
+  const user = await User.create(req.body);
+  return res.json(user)
+}
+
+export const findUser = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+  } catch {
+    res.status(404).send({error: "Id not found!"});
+  }
+}
+
+export const updateUser = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user = await User.findById(req.params.id);
+    Object.assign(user, req.body);
+    user?.save();
+    res.json(user);
+  } catch {
+    res.status(404).send({error: "Id not found!"});
+  }
+}

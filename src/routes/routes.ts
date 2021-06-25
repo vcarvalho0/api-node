@@ -4,12 +4,15 @@ import * as UserController from "../controller/UserController";
 
 const router = Router();
 
-//Default Route
 router.get("/", (req, res) => {
-    res.json({message: "Welcome!"})
-})
+  res.json({ message: "Welcome!" });
+});
 
 router.get("/users/", UserController.index);
+
 router.post(`/users/`, UserController.create);
+
+router.get("/users/:id", UserController.findUser);
+router.patch("/users/:id", UserController.updateUser);
 
 export default router;
