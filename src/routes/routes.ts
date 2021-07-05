@@ -1,4 +1,4 @@
-import { response, Router } from "express";
+import { Router } from "express";
 
 import * as UserController from "../controller/UserController";
 
@@ -9,10 +9,10 @@ router.get("/", (req, res) => {
 });
 
 router.get("/users/", UserController.index);
-
 router.post(`/users/`, UserController.create);
 
 router.get("/users/:id", UserController.findUser);
 router.patch("/users/:id", UserController.updateUser);
+router.delete("/user/:id", UserController.deleteUser);
 
 export default router;
