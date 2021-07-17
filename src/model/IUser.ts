@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 interface IUser extends Document {
-  discordId: number;
+  _id: number;
   nickname: string;
   description?: string;
 }
